@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core">
+
+<h:head>Inicio</h:head>
+<h:body>
+
+	<h:body>
+		<h:form>
+			<h:panelGrid columns="2">
+			<h:outputText value="Codigo:"/>
+			<h:inputText value="#{personaBean.persona.id}"/>
+			
+			<h:outputText value="Nombre:"/>
+			<h:inputText value="#{personaBean.persona.nombre}"/>
+			
+			</h:panelGrid>
+			
+			<h:commandButton value="Save" action="#{personaBean.save()}" />
+		
+		</h:form>
+	</h:body>
+
+</h:body>
+</html>

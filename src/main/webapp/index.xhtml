@@ -7,13 +7,43 @@
 
 <h:head>Inicio</h:head>
 <h:body>
-  <h:form>        
-	<h:inputText id="datoInicial" value="#{personaController.nombre}" />
-	<h:commandButton value="Procesar">
-		<f:ajax execute="datoInicial" render="datoSalida" />
-	</h:commandButton>
-	<h:inputText id="datoSalida"
-		value=" Hola  : #{personaController.nombre}"></h:inputText>
-		 </h:form>
+
+	<h:form>
+		<h:commandButton value="Nuevo"
+			action="#{personaBean.getOne(0)}"
+			 />
+	</h:form>
+	<h:form>
+		<h:dataTable value="#{personaBean.lista}" var="e">
+			<h:column>
+				<f:facet name="#">
+					<h:outputText value="header" />
+				</f:facet>
+				<h:outputText value="#{e.id}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Nombre" />
+				</f:facet>
+				<h:outputText value="#{e.nombre}" />
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Operacion 1" />
+				</f:facet>
+				<h:commandButton value="Eliminar"
+					action="#{personaBean.deleteById(e.id)}">
+				</h:commandButton>
+			</h:column>
+			<h:column>
+				<f:facet name="header">
+					<h:outputText value="Operacion 2" />
+				</f:facet>
+				<h:commandButton value="Modificar"
+					action="#{personaBean.getOne(e.id)}" >
+				</h:commandButton>
+			</h:column>
+		</h:dataTable>
+	</h:form>
 </h:body>
 </html>
