@@ -28,13 +28,16 @@ public class Conexion {
 			String username = properties.getProperty("ds_username");
 			String password = properties.getProperty("ds_password");
 			
-			//Class.forName(driver);
+			Class.forName(driver);
 			connection =DriverManager.getConnection(url, username, password);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ClassNotFoundException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}

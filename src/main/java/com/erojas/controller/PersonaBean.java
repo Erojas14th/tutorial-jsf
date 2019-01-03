@@ -40,6 +40,7 @@ public class PersonaBean {
 			
 		}else {
 			persona= new Persona();
+			persona.setId(personaService.generateId());
 		}
 	
 		
@@ -54,11 +55,13 @@ public class PersonaBean {
 		
 		String direccion="";
 		
-		if(persona.getId()!=null) {
-			if(personaService.save(persona)>=1) {
+		if( persona.getId()!=personaService.generateId()) {
+			if(personaService.update(persona)>=1){
 				// mensaje save
 			}
-			if(personaService.update(persona)>=1){
+			
+		}else {
+			if(personaService.save(persona)>=1) {
 				// mensaje update
 			}
 		}

@@ -1,10 +1,12 @@
 package com.erojas.dao;
 
+import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.sql.Types;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -120,6 +122,26 @@ public class PersonaDAOImpl implements PersonaDAO{
 		return flag;
 		
 		
+	}
+
+	@Override
+	public int generateId() {
+		//1  ? parametro de retorno
+		String sql = "{call generateId(?)}";
+		int id=0;
+		try {
+			CallableStatement cs = cn.prepareCall(sql);
+			// 2 Definiendo el tipo de retorno
+			cs.registerOutParameter(1, Types.INTEGER);
+			cs.execute();
+			// 3 Obteniendo el valor definido 2
+			id=cs.getInt(1);
+			cs.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		return id;
 	}
 
 }

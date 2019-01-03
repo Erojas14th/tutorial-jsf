@@ -43,6 +43,12 @@ public class PersonaServiceImpl implements PersonaService{
 		// TODO Auto-generated method stub
 		return personaDAO.findAll();
 	}
+
+	@Override
+	public int generateId() {
+		// TODO Auto-generated method stub
+		return personaDAO.generateId();
+	}
 	
 
 }

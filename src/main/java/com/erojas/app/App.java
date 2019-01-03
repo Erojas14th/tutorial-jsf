@@ -2,8 +2,7 @@ package com.erojas.app;
 
 import java.util.List;
 
-import com.erojas.dao.PersonaDAO;
-import com.erojas.dao.PersonaDAOImpl;
+
 import com.erojas.model.Persona;
 import com.erojas.service.PersonaService;
 import com.erojas.service.impl.PersonaServiceImpl;
@@ -29,5 +28,6 @@ public class App {
 		}
 
 		
+		System.out.println(dao.generateId());
 	}
 }

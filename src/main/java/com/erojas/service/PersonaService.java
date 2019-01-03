@@ -10,4 +10,5 @@ public interface PersonaService {
 	int deleteById(Integer id);
 	Persona getOne(Integer id);
 	List<Persona> findAll();
+	int generateId();
 }
