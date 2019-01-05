@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:h="http://java.sun.com/jsf/html"
+	xmlns:f="http://java.sun.com/jsf/core"
+	xmlns:p="http://primefaces.org/ui">
+
+
+<h:head>Inicio</h:head>
+<h:body>
+	<h:form>
+		<p:commandButton value="Nuevo"
+			action="#{personaBean.getOne(0)}"
+			 />
+	</h:form>
+	<h:form>
+		<p:dataTable value="#{personaBean.lista}" var="e">
+				
+			
+			<p:column headerText="#">
+				<h:outputText value="#{e.id}"/>
+			</p:column>
+			<p:column headerText="Nombre">
+				<h:outputText value="#{e.nombre}"/>
+			</p:column>
+			<p:column headerText="Operacion 1">
+				<p:commandButton value="Eliminar"
+					action="#{personaBean.deleteById(e.id)}">
+				</p:commandButton>
+			</p:column>
+			<p:column headerText="Operacion 2">
+				<p:commandButton value="Modificar"
+					action="#{personaBean.getOne(e.id)}" >
+				</p:commandButton>
+			</p:column>
+			
+			
+		</p:dataTable>
+	</h:form>
+</h:body>
+</html>

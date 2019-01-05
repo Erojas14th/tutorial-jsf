@@ -11,11 +11,23 @@
 <h:body>
 
 
-	<h:form>
-		<p:commandButton  action="#{navigationController.homePersistence()}" value="Con Persistence"/>
-	</h:form>
-	<h:form>
-		<p:commandButton  action="#{navigationController.homeJdbc()}" value="Con Jdbc"/>
-	</h:form>
+	<h:form >
+			<p:panelGrid columns="2">
+			
+			
+			
+			<h:outputLabel value="Codigo:"/>
+			<h:inputText value="#{personController.person.id}"/>
+			
+			<h:outputLabel value="Nombre:"/>
+			<h:inputText value="#{personController.person.name}"/>
+			
+		
+			
+			</p:panelGrid>
+			
+			<p:commandButton value="Save" action="#{personController.save()}"  />
+		
+		</h:form>
 </h:body>
 </html>

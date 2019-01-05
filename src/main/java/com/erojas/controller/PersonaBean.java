@@ -68,13 +68,13 @@ public class PersonaBean {
 		
 		findAll();
 
-		return "index?faces-redirect=true";
+		return "persona_list?faces-redirect=true";
 	}
 	
 	public String deleteById(Integer id) {
 		String direccion="";
 		if(personaService.deleteById(id)>=1) {
-			direccion= "index?faces-redirect=true";
+			direccion= "persona_list?faces-redirect=true";
 		}
 		findAll();
 		return direccion;
